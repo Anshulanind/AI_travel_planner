@@ -1,5 +1,5 @@
 import express from 'express';
-import Trip from '../models/Trip.js';
+import Trip from '../models/trips.js';
 import auth from '../middleware/auth.js';
 
 const router = express.Router();
