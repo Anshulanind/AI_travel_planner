@@ -6,7 +6,16 @@ dns.setServers(['8.8.8.8', '8.8.4.4']);
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
-import 'dotenv/config'; 
+import dotenv from 'dotenv'; 
+
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// These three lines force Node to look for the .env file in the EXACT 
+// same folder that this server.js file is sitting in.
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+dotenv.config({ path: path.join(__dirname, '.env') });
 
 // 3. Import Routes
 import authRoutes from './routes/auth.js';
@@ -25,6 +34,8 @@ app.use(express.json());
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log("✅ Connected to MongoDB successfully!");
+    // Quick debug check to prove the variables loaded!
+    console.log("📧 Email configured as:", process.env.EMAIL_USER);
   })
   .catch((err) => {
     console.error("❌ MongoDB Connection Failed:", err.message);

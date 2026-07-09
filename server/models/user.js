@@ -18,6 +18,22 @@ const userSchema = new mongoose.Schema({
     required: [true, 'Password is required'],
     minlength: [6, 'Password must be at least 6 characters long']
   },
+  // --- OTP VERIFICATION FIELDS ---
+  isVerified: {
+    type: Boolean,
+    default: false // Users start as unverified until they enter the code
+  },
+  otp: {
+    type: String
+  },
+  otpExpires: {
+    type: Date
+  },
+  // --- TRAVEL PLANNER DATA ---
+  savedTrips: {
+    type: Array,
+    default: [] // Ready to store the JSON itineraries from the AI later
+  },
   createdAt: {
     type: Date,
     default: Date.now
