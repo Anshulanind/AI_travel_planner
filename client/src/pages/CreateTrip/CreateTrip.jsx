@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from '../api'; // Pointing one folder up to grab api.js
+import api from '../../api'; // Pointing one folder up to grab api.js
 
 const CreateTrip = () => {
   const navigate = useNavigate();
