@@ -10,6 +10,7 @@ import 'dotenv/config';
 
 // 3. Import Routes
 import authRoutes from './routes/auth.js';
+import tripsRoutes from './routes/trips.js';
 
 const app = express();
 
@@ -32,6 +33,7 @@ mongoose.connect(process.env.MONGO_URI)
 // 5. Use Auth Routes
 // This wires up your routes so they prepend /api/auth to endpoints
 app.use('/api/auth', authRoutes);
+app.use('/api/trips', tripsRoutes);
 
 // Test route
 app.get('/api/test', (req, res) => {
