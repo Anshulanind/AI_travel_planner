@@ -1,26 +1,18 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-// Import your pages (ensure the file paths match your folder structure)
-import HomePage from './pages/Home/HomePage';
-import RegisterPage from './pages/register/RegisterPage';
-import LoginPage from './pages/login/login';
+import HomePage from './pages/Home/HomePage.jsx';
+import RegisterPage from './pages/register/RegisterPage.jsx';
+import LoginPage from './pages/login/login.jsx';
+import Dashboard from './pages/Dashboard/Dashboard.jsx'; // 1. Make sure this is imported
 
 function App() {
   return (
     <BrowserRouter>
-      {/* The Routes component acts like a switchboard. 
-        It looks at the URL in the browser and renders the matching component.
-      */}
       <Routes>
-        {/* When the URL is exactly "/", show the HomePage */}
         <Route path="/" element={<HomePage />} />
-        
-        {/* When the URL is "/register", show the RegisterPage */}
         <Route path="/register" element={<RegisterPage />} />
-        
-        {/* You can add your login page here later! */}
-        { <Route path="/login" element={<LoginPage />} /> }
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/dashboard" element={<Dashboard />} /> {/* 2. Add this route */}
       </Routes>
     </BrowserRouter>
   );

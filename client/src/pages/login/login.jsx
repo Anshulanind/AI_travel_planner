@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './LoginPage.css';
+import './login.css';
 
 const LoginPage = () => {
   // Capture Input
@@ -43,7 +43,8 @@ const LoginPage = () => {
       if (response.ok) {
         // Store the authentication token (usually a JWT) in localStorage
         if (data.token) {
-          localStorage.setItem('authToken', data.token);
+          // FIXED: Changed 'authToken' to 'token' to match Dashboard and API interceptor
+          localStorage.setItem('token', data.token);
         }
         navigate('/dashboard');
       } else {
