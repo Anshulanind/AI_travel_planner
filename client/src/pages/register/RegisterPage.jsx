@@ -33,7 +33,7 @@ const RegisterPage = () => {
     setErrorMsg(''); 
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/register', {
+      const response = await fetch('${import.meta.env.VITE_API_BASE_URL}/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData), 
@@ -61,7 +61,7 @@ const RegisterPage = () => {
     setErrorMsg('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/verify-otp', {
+      const response = await fetch('${import.meta.env.VITE_API_BASE_URL}/api/auth/verify-otp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         // We must send the email AND the otp so the backend knows who is verifying
