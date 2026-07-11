@@ -1,6 +1,6 @@
 // 1. Force Node to use Google DNS (Bypasses Windows SRV Bug)
-import dns from 'node:dns';
-dns.setServers(['8.8.8.8', '8.8.4.4']);
+// import dns from 'node:dns';
+// dns.setServers(['8.8.8.8', '8.8.4.4']);
 
 // 2. Import packages
 import express from 'express';
@@ -25,7 +25,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:5173', // The exact URL of your frontend
+  origin: 'https://ai-travel-planner-6vqtzsup1-anshulaninds-projects.vercel.app/', // The exact URL of your frontend
   credentials: true
 }));
 app.use(express.json());
