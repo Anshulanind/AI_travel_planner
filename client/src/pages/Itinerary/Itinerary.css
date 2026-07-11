@@ -1,0 +1,164 @@
+.itinerary-page {
+  background-color: #f4f7f6;
+  min-height: 100vh;
+  padding-bottom: 4rem;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Massive Header */
+.itinerary-header {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+}
+
+.back-btn {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.destination-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin: 0 0 1rem;
+  letter-spacing: -1px;
+}
+
+.trip-meta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.meta-tag {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  backdrop-filter: blur(4px);
+}
+
+/* Content Layout */
+.itinerary-content {
+  max-width: 800px;
+  margin: -2rem auto 0; /* Pulls content up over the header */
+  padding: 0 1rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* Day Cards */
+.day-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e1e8ed;
+}
+
+.day-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  border-bottom: 2px solid #edf2f7;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.day-header h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  color: #2b6cb0;
+}
+
+.day-theme {
+  font-size: 1.1rem;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+/* Activities List */
+.activities-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.activity-item {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.activity-time-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+}
+
+.time-icon {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+}
+
+.time-text {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #718096;
+  text-transform: uppercase;
+}
+
+.activity-details-col {
+  flex: 1;
+  background: #f8fafc;
+  padding: 1.25rem;
+  border-radius: 8px;
+  border-left: 4px solid #4299e1;
+}
+
+.activity-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+  color: #1a202c;
+}
+
+.activity-desc {
+  margin: 0 0 0.75rem;
+  color: #4a5568;
+  line-height: 1.5;
+}
+
+.activity-cost {
+  display: inline-block;
+  background: #e2e8f0;
+  color: #2d3748;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Loading/Error States */
+.itinerary-loader, .itinerary-error {
+  text-align: center;
+  padding: 5rem 2rem;
+  font-size: 1.25rem;
+  color: #4a5568;
+}

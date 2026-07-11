@@ -128,7 +128,7 @@ const Dashboard = () => {
                       </span>
                     </div>
 
-                    <button className="btn-view-itinerary">View AI Itinerary</button>
+                    <button onClick={() => navigate(`/trip/${trip._id}`)}>  View AI Itinerary </button>
                   </div>
                 </article>
               ))}
