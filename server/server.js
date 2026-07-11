@@ -25,7 +25,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: "https://ai-travel-planner-6vqtzsup1-anshulaninds-projects.vercel.app", // The exact URL of your frontend
+  origin: "https://ai-travel-planner-flame-zeta.vercel.app", // The exact URL of your frontend
   credentials: true
 }));
 app.use(express.json());
