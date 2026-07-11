@@ -71,7 +71,7 @@ const CreateTrip = () => {
 
       const response = await api.post('/trips', payload);
       console.log('Trip created:', response.data);
-      navigate('/dashboard');
+      navigate(`/trip/${response.data._id}`);
       
     } catch (error) {
       console.error('Error creating trip:', error.response?.data || error.message);
