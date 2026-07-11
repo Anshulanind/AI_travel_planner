@@ -1,5 +1,5 @@
 import React from 'react';
-// Import the CSS file directly into the component
+import { Link } from 'react-router-dom'; // 1. IMPORT THIS
 import './HomePage.css'; 
 
 const HomePage = () => {
@@ -8,13 +8,17 @@ const HomePage = () => {
       {/* HEADER */}
       <header className="site-header">
         <div className="nav-container">
-          <a href="/" className="brand-logo">AI Travel Planner</a>
+          {/* Changed to Link */}
+          <Link to="/" className="brand-logo">AI Travel Planner</Link>
           <nav>
             <ul className="nav-links">
+              {/* Anchor links (#) stay as <a> tags because they just scroll the current page */}
               <li><a href="#features">Features</a></li>
               <li><a href="#how-it-works">How It Works</a></li>
-              <li><a href="/login">Login</a></li>
-              <li><a href="/register" className="btn-primary">Register</a></li>
+              
+              {/* Changed internal page navigation to Link */}
+              <li><Link to="/login">Login</Link></li>
+              <li><Link to="/register" className="btn-primary">Register</Link></li>
             </ul>
           </nav>
         </div>
@@ -31,7 +35,9 @@ const HomePage = () => {
           <p className="hero-subtitle">
             Enter your destination, timeline, and budget. Our intelligent system will generate a complete, optimized daily itinerary tailored to your specific preferences.
           </p>
-          <a href="/register" className="btn-cta">Start Planning Now</a>
+          
+          {/* Changed CTA to Link */}
+          <Link to="/register" className="btn-cta">Start Planning Now</Link>
         </section>
 
         {/* FEATURES SECTION */}
@@ -67,8 +73,11 @@ const HomePage = () => {
       <footer className="site-footer">
         <p>&copy; 2026 AI Travel Planner. All rights reserved.</p>
         <nav className="footer-nav">
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/terms">Terms of Service</a>
+          {/* Changed internal pages to Link */}
+          <Link to="/privacy">Privacy Policy</Link>
+          <Link to="/terms">Terms of Service</Link>
+          
+          {/* External website links MUST stay as <a> tags! */}
           <a href="https://github.com/Anshulanind" target="_blank" rel="noopener noreferrer">View on GitHub</a>
         </nav>
       </footer>
