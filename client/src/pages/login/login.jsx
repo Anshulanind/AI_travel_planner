@@ -29,7 +29,7 @@ const LoginPage = () => {
 
     try {
       // Make API call and send data
-      const response = await fetch('${import.meta.env.VITE_API_BASE_URL}/api/auth/login', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

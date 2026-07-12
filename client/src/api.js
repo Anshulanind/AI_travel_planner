@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '${import.meta.env.VITE_API_BASE_URL}/api', // Make sure this matches your Node backend port
+  baseURL: `${import.meta.env.VITE_API_BASE_URL}/api`, // Make sure this matches your Node backend port
 });
 
 // Interceptor to attach the token before every request
