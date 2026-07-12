@@ -7,6 +7,7 @@ import { sendOTP } from '../mail/mailer.js'; // 1. Import your sendOTP function
 const router = express.Router();
 
 // --- 1. REGISTER ROUTE ---
+// --- 1. REGISTER ROUTE ---
 router.post('/register', async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -28,18 +29,24 @@ router.post('/register', async (req, res) => {
       name,
       email,
       password: hashedPassword,
-      isVerified: false, // Explicit safety flag
+      isVerified: false,
       otp,
       otpExpires
     });
 
-    await newUser.save();
+    await newUser.save(); // User is saved here
 
-    // 4. Trigger email dispatch out to your user
-    await sendOTP(email, otp);
+    // 4. THE FIX: Wrap the email function in a nested try/catch
+    try {
+      await sendOTP(email, otp);
+      return res.status(200).json({ message: 'OTP sent to email. Please verify.' });
+    } catch (emailError) {
+      // IF EMAIL FAILS: Delete the user from the database immediately!
+      await User.findByIdAndDelete(newUser._id);
+      console.error("Email sending failed:", emailError); // Helpful for your Render logs
+      return res.status(500).json({ message: 'Failed to send verification email. Please try again.' });
+    }
 
-    // Status code changed to 200 to neatly fit the React transition steps
-    res.status(200).json({ message: 'OTP sent to email. Please verify.' });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
