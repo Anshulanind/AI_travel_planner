@@ -10,7 +10,8 @@ const transporter = nodemailer.createTransport({
   auth: {
     user: process.env.EMAIL_USER, 
     pass: process.env.EMAIL_PASS  
-  }
+  },
+  family: 4
 });
 
 // Notice the "export const" right here! This is what auth.js is looking for.
